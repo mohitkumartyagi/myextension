@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   MKT
+ * @package    MKT_Favorite
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <MKT_Favorite>
+            <version>0.1.0</version>
+        </MKT_Favorite>
+    </modules>
+    <frontend>
+        <routers>
+            <favorite>
+                <use>standard</use>
+                <args>
+                    <module>MKT_Favorite</module>
+                    <frontName>favorite</frontName>
+                </args>
+            </favorite>
+        </routers>
+        <layout>
+            <updates>
+                <favorite>
+                    <file>favorite.xml</file>
+                </favorite>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<favorite>
+				<use>admin</use>
+				<args>
+					<module>MKT_Favorite</module>
+					<frontName>favorite</frontName>
+				</args>
+			</favorite>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<favorite module="favorite">
+				<title>Favorite</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="favorite">
+						<title>Manage Items</title>
+						<sort_order>0</sort_order>
+						<action>favorite/adminhtml_favorite</action>
+					</items>
+				</children>
+			</favorite>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<MKT_Favorite>
+							<title>Favorite Module</title>
+							<sort_order>10</sort_order>
+						</MKT_Favorite>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<favorite>
+					<file>favorite.xml</file>
+				</favorite>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <favorite>
+                <class>MKT_Favorite_Model</class>
+                <resourceModel>favorite_mysql4</resourceModel>
+            </favorite>
+            <favorite_mysql4>
+                <class>MKT_Favorite_Model_Mysql4</class>
+                <entities>
+                    <favorite>
+                        <table>favorite</table>
+                    </favorite>
+                </entities>
+            </favorite_mysql4>
+        </models>
+        <resources>
+            <favorite_setup>
+                <setup>
+                    <module>MKT_Favorite</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </favorite_setup>
+            <favorite_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </favorite_write>
+            <favorite_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </favorite_read>
+        </resources>
+        <blocks>
+            <favorite>
+                <class>MKT_Favorite_Block</class>
+            </favorite>
+        </blocks>
+        <helpers>
+            <favorite>
+                <class>MKT_Favorite_Helper</class>
+            </favorite>
+        </helpers>
+    </global>
+</config>

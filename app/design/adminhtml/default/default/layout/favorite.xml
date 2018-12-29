@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <favorite_adminhtml_favorite_index>
+        <reference name="content">
+            <block type="favorite/adminhtml_favorite" name="favorite" />
+        </reference>
+    </favorite_adminhtml_favorite_index>
+</layout>

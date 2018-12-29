@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <savelater_adminhtml_savelater_index>
+        <reference name="content">
+            <block type="savelater/adminhtml_savelater" name="savelater" />
+        </reference>
+    </savelater_adminhtml_savelater_index>
+</layout>
